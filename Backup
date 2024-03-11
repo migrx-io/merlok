@@ -1,0 +1,76 @@
+
+Snapshot ID:   snap-0535ab40ba48d96d4
+Name:          cassandra-data-cassandra-0
+Volume:        pvc-e96f82f6-ec54-4cfb-baf8-8f98a2498ec1
+Tags: 
+    volume: vol-0847fd4ca73901477
+    cassandra-test: true
+
+-> restored volume: vol-06fcb2232117630fc
+
+
+
+
+Snapshot ID:   snap-0c36e460b2f82b367
+Name:          cassandra-data-cassandra-1
+Volume:        pvc-a14e6faf-d7ba-45de-a251-439c34e0edde
+Tags: 
+    volume: vol-0444e735fe476f869
+    cassandra-test: true
+
+-> restored volume: vol-0c97886afe85f76e0
+
+
+
+
+Snapshot ID:   snap-01d8746bd2334b5e4
+Name:          cassandra-data-cassandra-2
+Volume:        pvc-19d0657c-5977-42ed-95f7-57e5c2747ee4
+Tags: 
+    volume: vol-057ec93bd51205380
+    cassandra-test: true
+
+-> restored volume: vol-02b672067ee61b5f2
+
+
+
+
+Snapshot ID:   snap-06a72aa7d8ea75f78
+Name:          cassandra-data-cassandra-3
+Volume:        pvc-d1719e1f-629d-47a6-83b1-8f6449889993
+Tags: 
+    volume: vol-0ec863be591832641
+    cassandra-test: true
+
+-> restored volume: vol-0f3827a0aff09746e	
+
+
+
+
+Snapshot ID:   snap-0959428a5c7964192   
+Name:          cassandra-data-cassandra-4
+Volume:        pvc-a9477600-7a11-4095-bfef-5dc5f8447fb0
+Tags: 
+    volume: vol-0cfba3217fb313ba4
+    cassandra-test: true
+
+
+-> restored volume: vol-0485798344acb962c
+
+
+
+
+Snapshot ID:   snap-0f33e38128e3b0de9  
+Name:          cassandra-data-cassandra-5
+Volume:        pvc-ec96ab57-1072-436d-bf1c-5eb8601ee80b
+Tags: 
+    volume:    vol-0d4127ecf51d28aaf
+    cassandra-test: true
+
+-> restored volume: vol-024fc0d18bd016980
+
+
+
+
+
+-> restored volume: vol-0485798344acb962c
