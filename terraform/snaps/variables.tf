@@ -1,4 +1,7 @@
 variable "volume_set" {
   type = set(string)
-  default = ["vol-0d19fc74c131a0892", "vol-07d214b1151514951", "vol-02f8ac87bc8d153b0"]
+
+  default = ["vol-06b8c0df18ae83176", 
+             "vol-034e7e7bd3dcf9755", 
+             "vol-006ceb74d1e21e6b7"]
 }

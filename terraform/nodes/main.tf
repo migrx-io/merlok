@@ -6,7 +6,8 @@ locals {
 resource "aws_security_group" "ssh_access_sg" {
   name        = "ssh_access_sg"
   description = "Allow SSH access"
-  
+  vpc_id = var.vpc_id
+
   # Inbound rule to allow SSH traffic from anywhere
   ingress {
     from_port   = 22
@@ -41,7 +42,8 @@ resource "aws_instance" "by_set" {
   for_each          = local.vols_map
   availability_zone = "us-east-1a"
   ami               = "ami-07761f3ae34c4478d"
-  instance_type     = "t2.micro"
+  instance_type     = "t3.2xlarge"
+  subnet_id     = var.subnet_id
 
   key_name      = aws_key_pair.instance.key_name
 
