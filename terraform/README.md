@@ -81,7 +81,7 @@ pscp -h hosts -l ec2-user cassandra.yaml /home/ec2-user/
 
 ssh ec2-user@<ip> 
 
-docker run --name cassandra -d -e CASSANDRA_BROADCAST_ADDRESS="<ip>"  --network host -v /mnt/cassandra:/var/lib/cassandra -v ~/cassandra.yaml:/etc/cassandra/cassandra.yaml cassandra:3.11.3
+docker run --name cassandra -d -e CASSANDRA_BROADCAST_ADDRESS="<ip>" -e CASSANDRA_DC=DC1 -e CASSANDRA_RACK=Rack1  --network host -v /mnt/cassandra:/var/lib/cassandra -v ~/cassandra.yaml:/etc/cassandra/cassandra.yaml cassandra:3.11.3
 
 # get seed ip
 ip -a
@@ -89,7 +89,7 @@ ip -a
 
 # other nodes
 
-pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no 'docker run --name cassandra -d -e CASSANDRA_BROADCAST_ADDRESS="<ip>" -e CASSANDRA_SEEDS="<ip>"  --network host -v /mnt/cassandra:/var/lib/cassandra -v ~/cassandra.yaml:/etc/cassandra/cassandra.yaml cassandra:3.11.3'
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no 'docker run --name cassandra -d -e CASSANDRA_SEEDS="<ip>" -e CASSANDRA_DC=DC1 -e CASSANDRA_RACK=Rack1  --network host -v /mnt/cassandra:/var/lib/cassandra -v ~/cassandra.yaml:/etc/cassandra/cassandra.yaml cassandra:3.11.3'
 
 docker logs cassandra
 
