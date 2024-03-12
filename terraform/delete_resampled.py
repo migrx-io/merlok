@@ -78,6 +78,6 @@ for i in rows:
     if account is not None:
         if i.year == account:
             metric["found"] += 1
-            session.execute("DELETE FROM metric WHERE accountid = {} AND year = {} and metricid = '{}'".format(i.accountid, i.year, i.metricid))
+            session.execute("DELETE FROM resampled_metric WHERE accountid = {} AND year = {} and metricid = '{}'".format(i.accountid, i.year, i.metricid))
             print("DEL: {}, {}, {}".format(i.accountid, i.year, i.metricid))
 
