@@ -69,6 +69,35 @@ pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no sudo mount /dev/<?> /mn
 ```
 
 
+## Run cassandra
+
+```
+
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no docker pull cassandra:3.11.3
+
+pscp -h hosts -l ec2-user cassandra.yaml /home/ec2-user/
+
+# first node
+
+ssh ec2-user@<ip> 
+
+docker run --name cassandra -d -e CASSANDRA_BROADCAST_ADDRESS="<ip>"  --network host -v /mnt/cassandra:/var/lib/cassandra -v ~/cassandra.yaml:/etc/cassandra/cassandra.yaml cassandra:3.11.3
+
+# get seed ip
+ip -a
+
+
+# other nodes
+
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no 'docker run --name cassandra -d -e CASSANDRA_BROADCAST_ADDRESS="<ip>" -e CASSANDRA_SEEDS="<ip>"  --network host -v /mnt/cassandra:/var/lib/cassandra -v ~/cassandra.yaml:/etc/cassandra/cassandra.yaml cassandra:3.11.3'
+
+docker logs cassandra
+
+docker exec -it cassandra /bin/bash
+
+```
+
+
 ## Helpful commands
 
 
@@ -85,8 +114,3 @@ Get list of EBS Snaps
 aws ec2 describe-snapshots --filters "Name=tag:cassandra-test,Values=true"
 
 ```
-
-EC2 instance type - t3.2xlarge
-
-
-pssh -l ec2-user -h hosts -i  echo "1"
