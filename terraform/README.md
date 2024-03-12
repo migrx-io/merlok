@@ -35,7 +35,7 @@ terraform apply
 ```
 cd ./nodes
 
-# edit variables.tf and put snap list
+# edit variables.tf and put vols list
 
 terraform init
 
@@ -44,6 +44,30 @@ terraform plan
 terraform apply
 
 ```
+
+## Save node ips to hosts file 
+
+```
+echo "ip" > hosts
+
+```
+
+## Mount volume 
+
+```
+
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no lsblk
+
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no sudo mkfs -t ext4 /dev/<?>
+
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no sudo mkdir /mnt/cassandra
+
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no sudo chown ec2-user:ec2-user /mnt/cassandra
+
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no sudo mount /dev/<?> /mnt/cassandra
+
+```
+
 
 ## Helpful commands
 
