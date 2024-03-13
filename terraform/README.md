@@ -114,3 +114,13 @@ Get list of EBS Snaps
 aws ec2 describe-snapshots --filters "Name=tag:cassandra-test,Values=true"
 
 ```
+
+Get IOPS
+```
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no "iostat -d nvme1n1 | grep nvme1n1 | awk '{ print $2; }'"
+```
+
+Get Disk space
+```
+pssh -l ec2-user -h hosts -i -O StrictHostKeyChecking=no df -h|grep nvme1n1
+```
