@@ -4,6 +4,7 @@
 
 
 from cassandra.cluster import Cluster
+from cassandra.query import ConsistencyLevel
 import logging as log 
 import time
 import os
@@ -69,6 +70,7 @@ def delete_resampled(session, account_id, year, metric_id):
     session.execute(sql)
 
 
+
 def main():
  
     log.getLogger().setLevel(os.environ.get("LOGLEVEL", "INFO"))
@@ -81,6 +83,8 @@ def main():
 
     cluster = Cluster([node])
     session = cluster.connect(ks)
+
+    session.default_consistency_level = ConsistencyLevel.ALL
 
     acc_and_year = load_acc_and_year("accountAndYear.csv")
     log.debug("acc_and_year: %s", acc_and_year)
