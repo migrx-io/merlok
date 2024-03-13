@@ -58,14 +58,14 @@ def load_acc_to_metric(path):
 def delete_metric(session, account_id, year, metric_id):
     sql = "DELETE FROM metric WHERE account_id = {} AND year = {} and metric_id = '{}'".format(account_id, year, metric_id)
 
-    log.debug("delete_metric: sql: %", sql)
+    log.info("delete_metric: sql: %s", sql)
     session.execute(sql)
 
 def delete_resampled(session, account_id, year, metric_id):
 
     sql = "DELETE FROM resampled_metric WHERE accountid = {} AND year = {} and metricid = '{}'".format(account_id, year, metric_id)
 
-    log.debug("delete_resampled: sql: %", sql)
+    log.ingo("delete_resampled: sql: %s", sql)
     session.execute(sql)
 
 
@@ -100,8 +100,7 @@ def main():
 
         tb = time.time()
         for m in metric_ids:
-            log.debug("delete partitiont account_id: %s year: %s metric_id: %s", item["account"],
-                      item["year"], m)
+            log.debug("delete partitiont account_id: %s year: %s metric_id: %s", item["account"], item["year"], m)
 
             if table == "metric":
                 # del metric
@@ -110,7 +109,7 @@ def main():
                 # del metric
                 delete_resampled(session, item["account"], item["year"], m)
 
-        log.info("partition for table: %s item: % is deleted. elapsed(sec): %s", table, item, time.time() - tb)
+        log.info("partition for table: %s item: %s is deleted. elapsed(sec): %s", table, item, time.time() - tb)
 
 
 if  __name__ == "__main__":
