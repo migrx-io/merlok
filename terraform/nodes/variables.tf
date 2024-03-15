@@ -11,11 +11,11 @@ variable "subnet_id" {
 variable "vols_set" {
   type    = set(string)
 
-  default = ["vol-0b600506b4b3f62f0",
-             "vol-0fd8512a5808b6e67",
-             "vol-043d10ff5797ec594",
-             "vol-00ae68c5392cbddb0",
-             "vol-0fd299dc05cbca65c",
-             "vol-05c4a321551e462fb"]
+  default = ["vol-00f0c199ca2e27a20",
+             "vol-02e409ae9627662ae",
+             "vol-0ff679bc793eb4686",
+             "vol-02d9b03b74b3f9a7b",
+             "vol-0bd2c8c753ddde929",
+             "vol-030981665b81891d1"]
 
 }
