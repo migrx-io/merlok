@@ -66,7 +66,7 @@ def delete_resampled(session, account_id, year, metric_id):
 
     sql = "DELETE FROM resampled_metric WHERE accountid = {} AND year = {} and metricid = '{}'".format(account_id, year, metric_id)
 
-    log.ingo("delete_resampled: sql: %s", sql)
+    log.info("delete_resampled: sql: %s", sql)
     session.execute(sql)
 
 
