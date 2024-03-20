@@ -18,6 +18,7 @@ It should be applied only for that case on that particular data and cluster.
 
 - Snapshots should be deleted on the node to allow for the release of disk space for completed SSTables. Current disk utilization doesn't allow for hosting snapshots and new SSTables."
 
+- Found problem to delete data from resample_metric that relate to know Cassandra bug https://issues.apache.org/jira/browse/CASSANDRA-14978. It's know bug  and we need to explicitly set disk_access_mode=mmap_index_only  in cassanra.yaml for all nodes to avoid that issue
 
 ## Steps (on all nodes)
 
@@ -65,3 +66,16 @@ nodetool compactionstats
 
 7. (Optional) Don't forget to monitor EC2 Instance and EBS Volume performance in CloudWatch and/or create Alerts to allow reacting timely if needed
 
+
+## Test results on same data
+
+![cpu](./img/cpu.png)
+ 
+![read_iops](./img/read_iops.png)
+ 
+![write_iops](./img/write_iops.png)
+ 
+![read_thp](./img/read_thp.png)
+
+![write_thp](./img/write_thp.png)
+ 
