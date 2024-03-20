@@ -69,13 +69,18 @@ nodetool compactionstats
 
 ## Test results on same data
 
+CPU
 ![cpu](./img/cpu.png)
  
+Read IOPS
 ![read_iops](./img/read_iops.png)
  
+Write IOPS
 ![write_iops](./img/write_iops.png)
  
+Read throughput (KiB/s)
 ![read_thp](./img/read_thp.png)
 
+Write throughput (KiB/s)
 ![write_thp](./img/write_thp.png)
  
